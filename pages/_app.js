@@ -1,7 +1,12 @@
-import '../styles/globals.css'
+import "../styles/globals.css";
+import FooterContextProvider from "../contexts/footerContext";
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+    <FooterContextProvider>
+      <Component {...pageProps} />
+    </FooterContextProvider>
+  );
 }
 
-export default MyApp
+export default MyApp;
