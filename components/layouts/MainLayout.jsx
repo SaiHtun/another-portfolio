@@ -4,7 +4,7 @@ import Nav from "../../components/Nav";
 import Footer from "../../components/Footer";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "../GlobalStyles";
-import { lightTheme, darkTheme } from "../theme";
+import { lightTheme, darkTheme } from "../theme/index";
 import { useDarkMode } from "../../Hooks/useDarkMode";
 import Head from "next/head";
 
