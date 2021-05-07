@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import About from './about';
+import About from './About';
 import Skill from './Skill';
+import Hobby from './Hobby';
 import { useFooter } from '../../contexts/footerContext';
 
 export default function sections({up }) {
   const [push, setPush] = useState(0);
   const { scrollCount } = useFooter();
-  // const [ upCount, setUpCount ] = useState(0);
-  // const [ downCount, setDownCount ] = useState(0);
 
   useEffect(() => {
     if (up === "") {
@@ -25,6 +24,7 @@ export default function sections({up }) {
     <Container push={push}>
       <About />
       <Skill />
+      <Hobby />
     </Container>
   );
 }

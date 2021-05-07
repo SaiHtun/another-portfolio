@@ -26,8 +26,8 @@ const data = [
     to: "/",
   },
   {
-    name: "About",
-    to: "/about",
+    name: "My Story",
+    to: "/story",
   },
   {
     name: "Project",
@@ -59,14 +59,14 @@ export default function Home(props) {
       </Head>
       <ThemeProvider theme={themeMode}>
         <GlobalStyles />
-        <Container>
+        <Container open={openOverlay}>
           <Overlay open={openOverlay}>
             <Close onClick={() => setOpenOverlay(!openOverlay)}>
               <VscChromeClose />
             </Close>
             <Menu>
               {data.map((e, i) => (
-                <Link href={e.to} key={i}>
+                <Link href={e.to} key={i} onClick={() => setOpenOverlay(!openOverlay)}>
                   <li>{e.name}</li>
                 </Link>
               ))}
@@ -84,14 +84,17 @@ export default function Home(props) {
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
-  /* position: relative; */
+
+  ${props => props.open && css`
+    overflow: hidden;
+  ` };
 `;
 
 const Overlay = styled.div`
   width: 100vw;
   height: 100vh;
   z-index: 10;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   opacity: 0;
@@ -115,10 +118,15 @@ const Close = styled.div`
   justify-content: center;
   align-items: center;
   position: absolute;
-  right: 50px;
+  right: 100px;
   top: 50px;
   z-index: 1;
   cursor: pointer;
+
+  @media only screen and (max-width: 800px) {
+    top: 20px;
+    right: 20px;
+  } 
 
   svg {
     font-size: 2em;

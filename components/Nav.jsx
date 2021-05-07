@@ -38,7 +38,7 @@ const Wrapper = styled.div`
   width: 100vw;
   height: 10vh;
   line-height: 10vh;
-  z-index: -10;
+  z-index: 2;
   transition: all 0.50s linear;
 
   @media only screen and (max-width: 800px) {
