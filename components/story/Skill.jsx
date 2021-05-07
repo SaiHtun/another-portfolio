@@ -70,7 +70,7 @@ const Container = styled.div`
     right: -100px;
     font-size: 60vw;
     opacity: 0.3;
-    color: #61dbfb;
+    color: #61dbfb !important;
 
     @media only screen and (max-width: 600px) {
         bottom: -50px;

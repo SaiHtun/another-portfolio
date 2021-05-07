@@ -62,7 +62,9 @@ const Card = ({ up, zoom }) => {
             <FollowContent zoom={zoom}>
               <FollowTitle>{item.title}</FollowTitle>
               {/* <Link href={item.url}> */}
-              <FollowCTA>{item.cta}</FollowCTA>
+              <Link href={item.to}>
+               <FollowCTA>{item.cta}</FollowCTA>
+              </Link>
               {/* </Link> */}
             </FollowContent>
             <Overlay></Overlay>
