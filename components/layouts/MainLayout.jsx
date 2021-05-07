@@ -4,8 +4,9 @@ import Nav from "../../components/Nav";
 import Footer from "../../components/Footer";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "../GlobalStyles";
-import { lightTheme, darkTheme } from "../Theme";
+import { lightTheme, darkTheme } from "../theme";
 import { useDarkMode } from "../../Hooks/useDarkMode";
+import Head from "next/head";
 
 export default function Home(props) {
   const [theme, themeToggler, mountedComponent] = useDarkMode();
@@ -20,14 +21,19 @@ export default function Home(props) {
   if (!mountedComponent) return <div></div>;
 
   return (
-    <ThemeProvider theme={themeMode}>
-      <GlobalStyles />
-      <Container>
-        <Nav toggler={themeToggler} theme={theme}></Nav>
-        {children}
-        <Footer theme={theme}></Footer>
-      </Container>
-    </ThemeProvider>
+    <>
+      <Head>
+        <script type="text/javascript" src="/static/index.js" />
+      </Head>
+      <ThemeProvider theme={themeMode}>
+        <GlobalStyles />
+        <Container>
+          <Nav toggler={themeToggler} theme={theme}></Nav>
+          {children}
+          <Footer theme={theme}></Footer>
+        </Container>
+      </ThemeProvider>
+    </>
   );
 }
 

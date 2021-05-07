@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
 import styled, { css } from "styled-components";
 import Link from "next/link";
-import { useFooter } from "../contexts/footerContext";
+import { useFooter } from "../../contexts/footerContext";
 
 const data = [
   {
-    to: "#",
+    to: "/story",
     url: "./coffee.jpg",
     title: "My Story",
     text: "A Designer Who Can Code",
     cta: "More",
   },
   {
-    to: "#",
+    to: "/blog",
     url: "./driver.jpg",
     title: "Blog",
     text: "JavaScript, React, GraphQL, Cloud",

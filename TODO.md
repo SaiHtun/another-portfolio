@@ -2,5 +2,9 @@
 
 *[x] scroll indicator
 *[x] grid show 4 cards
-*[] letters on cards
-*[] mobile responsiveness
+*[x] letters on cards
+*[x] mobile responsiveness
+
+
+
+*[] story page

@@ -2,33 +2,31 @@ import React, { useRef, useState, useEffect } from "react";
 import styled, { css } from "styled-components";
 import CardOne from "./CardOne";
 import CardTwo from "./CardTwo";
-import { useFooter } from "../contexts/footerContext";
+import { useFooter } from "../../contexts/footerContext";
 import { AiFillAppstore, AiOutlineZoomOut } from "react-icons/ai";
+import  { throttle } from '../../utility/throttle';
 
 export default function Hero({ theme }) {
-  const conRef = useRef();
   const [up, setUp] = useState("");
   const { scrollCount, setScrollCount } = useFooter();
   const [zoomOut, setZoomOut] = useState(false);
 
   const handleWheel = (e) => {
-    if (e.deltaY > 4 && e.deltaY < 5) {
+    if (e.deltaY > 4 ) {
       setUp("up");
       if (scrollCount < 2) {
         setScrollCount(scrollCount + 1);
       }
-    } else if (e.deltaY < -4 && e.deltaY > -5 && up !== "") {
+    } else if (e.deltaY < -4  && up !== "") {
       setUp("down");
       if (scrollCount > 1) setScrollCount(scrollCount - 1);
     }
   };
 
+  
+
   return (
-    <Container
-      zoom={zoomOut}
-      ref={conRef}
-      onWheel={zoomOut ? undefined : handleWheel}
-    >
+    <Container zoom={zoomOut} onWheel={zoomOut ? undefined : (e) => throttle(e, handleWheel, 200)}>
       <CardOne up={up} zoom={zoomOut} />
       <CardTwo up={up} zoom={zoomOut} />
       <ZoomBtn

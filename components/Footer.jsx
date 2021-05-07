@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useFooter } from "../contexts/footerContext";
-import Image from "next/image";
 
 export default function Footer({ theme }) {
-  const { scrollCount } = useFooter();
+  const { scrollCount, page } = useFooter();
   const [show, setShow] = useState(false);
 
   useEffect(() => {
@@ -20,7 +19,11 @@ export default function Footer({ theme }) {
     <Container>
       <Left></Left>
       <Center>
-        <span> {scrollCount} / 2</span> {show && <Loader url={loaderUrl} />}
+        <span>
+          {" "}
+          {scrollCount} / {page}
+        </span>{" "}
+        {show && <Loader url={loaderUrl} />}
       </Center>
       <Right>
         Designed and Developed by <span>Sai</span>{" "}

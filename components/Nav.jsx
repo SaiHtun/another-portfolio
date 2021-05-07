@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Link from "next/link";
 import { FaTwitter, FaGithubAlt, FaSun, FaRegMoon } from "react-icons/fa";
 
 export default function Nav({ toggler, theme }) {
@@ -12,7 +13,9 @@ export default function Nav({ toggler, theme }) {
   return (
     <Wrapper>
       <Container>
-        <Brand>Sai</Brand>
+        <Link href="/">
+          <Brand>Sai</Brand>
+        </Link>
         <Menu>
           <MenuItem onClick={handleToggle}>{sunMoon}</MenuItem>
           <MenuItem>
@@ -33,6 +36,7 @@ const Wrapper = styled.div`
   width: 100vw;
   height: 10vh;
   line-height: 10vh;
+  z-index: 10;
 `;
 const Container = styled.div`
   padding-left: 8%;
@@ -44,6 +48,7 @@ const Container = styled.div`
 const Brand = styled.div`
   font-family: "Sacramento", cursive;
   font-size: 1.5em;
+  cursor: pointer;
 `;
 
 const Menu = styled.div`
