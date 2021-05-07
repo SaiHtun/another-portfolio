@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import About from './About';
+import About from './about';
 import Skill from './Skill';
 import Hobby from './Hobby';
 import { useFooter } from '../../contexts/footerContext';
