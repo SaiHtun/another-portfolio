@@ -40,6 +40,7 @@ const Container = styled.div`
   @media only screen and (max-width: 800px) {
     transform: translateY(0px);
     height: max-content;
+    padding: 0px 5%;
   } 
 `;
 

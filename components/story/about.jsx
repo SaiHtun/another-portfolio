@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Download from "../buttons/download";
 
 export default function sectionOne() {
+  const [drop, setDrop] = useState(false);
+
+  const handleDrop = (e) => {
+    let isInclude = e.target.classList.contains("slideContainer")
+    if(!isInclude) {
+      setDrop(false)
+    }
+  }
+
+  
   return (
-      <SectionOne>
+      <SectionOne onClick={handleDrop}>
         <Left></Left>
         <Right>
           <ContentWrapper>
@@ -17,7 +27,7 @@ export default function sectionOne() {
               product use and goals, then i can turn your wishes into reality in
               the most creative ways!
             </Message>
-            <Download />
+            <Download drop={drop} setDrop={setDrop} />
           </ContentWrapper>
         </Right>
       </SectionOne>

@@ -32,4 +32,14 @@ export default function story() {
 
 const Container = styled.div`
   overflow: hidden;
+  :hover {
+    cursor: url("/scroll50.png"), auto;
+  }
+
+  @media only screen and (max-width: 800px) {
+    margin-top: 10vh;
+    :hover {
+      cursor: auto;
+    }
+  } 
 `;

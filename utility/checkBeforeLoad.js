@@ -43,4 +43,4 @@ const checkBeforeLoad =  ()  => {
   };
 
 export default checkBeforeLoad
-  
+

@@ -3,7 +3,8 @@ import styled, { css } from "styled-components";
 import CardOne from "./CardOne";
 import CardTwo from "./CardTwo";
 import { useFooter } from "../../contexts/footerContext";
-import { AiFillAppstore, AiOutlineZoomOut } from "react-icons/ai";
+import { AiFillAppstore } from "react-icons/ai";
+import { GoScreenNormal } from "react-icons/go";
 import  { throttle } from '../../utility/throttle';
 
 export default function Hero({ theme }) {
@@ -23,6 +24,7 @@ export default function Hero({ theme }) {
     }
   };
 
+  const icon = zoomOut? <GoScreenNormal className="grid"/> : <AiFillAppstore className="grid"/>
   
 
   return (
@@ -35,7 +37,7 @@ export default function Hero({ theme }) {
         onClick={() => setZoomOut(!zoomOut)}
       >
         <p>Zoom</p>
-        <AiFillAppstore className="grid" />
+        {icon}
       </ZoomBtn>
     </Container>
   );
@@ -92,6 +94,9 @@ const ZoomBtn = styled.div`
 
   @media only screen and (max-width: 800px) {
     display: none;
+  }
+  @media only screen and (min-width: 1200px) {
+    color: ${props => props.zoom && "black"}
   }
 
   ${(props) =>

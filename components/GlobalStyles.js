@@ -11,6 +11,11 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     .downloadText {
+      color: ${({ theme }) => theme.body};
+    }
+
+    .nav {
+      background: ${({ theme }) => theme.body};
       color: ${({ theme }) => theme.text};
     }
   }
