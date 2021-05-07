@@ -4,9 +4,20 @@ import Nav from "../../components/Nav";
 import Footer from "../../components/Footer";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "../GlobalStyles";
-import { lightTheme, darkTheme } from "../theme/index";
 import { useDarkMode } from "../../Hooks/useDarkMode";
 import Head from "next/head";
+
+const lightTheme = {
+  body: "#fff",
+  text: "#181818",
+  background: "#363537",
+};
+const darkTheme = {
+  body: "#181818",
+  text: "#FAFAFA",
+  background: "#181818",
+};
+
 
 export default function Home(props) {
   const [theme, themeToggler, mountedComponent] = useDarkMode();
