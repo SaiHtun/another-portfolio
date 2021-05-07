@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useFooter } from "../contexts/footerContext";
 
 export default function Footer({ theme }) {
-  const { scrollCount, page } = useFooter();
+  const { scrollCount, page, setScrollCount } = useFooter();
   const [show, setShow] = useState(false);
 
   useEffect(() => {
@@ -12,6 +12,12 @@ export default function Footer({ theme }) {
       setShow(false);
     }, 1000);
   }, [scrollCount]);
+
+  useEffect(() => {
+    setScrollCount(1)
+
+    
+  }, [])
 
   const loaderUrl = theme === "light" ? "./loading.svg" : "./darkLoading.svg";
 

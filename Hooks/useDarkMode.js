@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import  checkBeforeLoad  from '../utility/checkBeforeLoad';
 
 export const useDarkMode = () => {
   const preferDarkQuery = "(prefers-color-scheme: dark)";
@@ -25,9 +26,14 @@ export const useDarkMode = () => {
   }, []);
 
   useEffect(() => {
+    checkBeforeLoad()
+  }, [theme])
+
+  useEffect(() => {
     const localTheme = window.localStorage.getItem("theme");
     localTheme && setTheme(localTheme);
     setMountedComponent(true);
+   
   }, []);
 
   return [theme, themeToggler, mountedComponent];

@@ -43,7 +43,7 @@ export default function Hero({ theme }) {
 
 const Container = styled.div`
   width: 100vw;
-  height: 80vh;
+  height: max-content;
   position: relative;
   padding: 0px 8%;
   display: grid;
@@ -62,7 +62,6 @@ const Container = styled.div`
     `};
 
   @media only screen and (max-width: 800px) {
-    height: max-content;
     grid-template-columns: 1fr;
 
     :hover {
