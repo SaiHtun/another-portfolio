@@ -84,13 +84,14 @@ const Content = styled.div`
 
 const Title = styled.h1`
   font-size: 20px;
-  margin-top: 50px;
   font-weight: 600;
   position: relative;
   display: inline-block;
+  margin-top: 50px;
 
   @media only screen and (max-width: 800px) {
     font-size: 18px;
+    margin-top: 0px;
     span {
       display: none;
     }

@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import styled, { css } from "styled-components";
 import CardOne from "./CardOne";
 import CardTwo from "./CardTwo";
@@ -6,11 +6,13 @@ import { useFooter } from "../../contexts/footerContext";
 import { AiFillAppstore } from "react-icons/ai";
 import { GoScreenNormal } from "react-icons/go";
 import  { throttle } from '../../utility/throttle';
+import { useTheme } from '../../contexts/themeContext';
 
-export default function Hero({ theme }) {
+export default function Hero(props) {
   const [up, setUp] = useState("");
   const { scrollCount, setScrollCount } = useFooter();
   const [zoomOut, setZoomOut] = useState(false);
+  const { theme } = useTheme();
 
   const handleWheel = (e) => {
     if (e.deltaY > 4 ) {
@@ -23,6 +25,7 @@ export default function Hero({ theme }) {
       if (scrollCount > 1) setScrollCount(scrollCount - 1);
     }
   };
+
 
   const icon = zoomOut? <GoScreenNormal className="grid"/> : <AiFillAppstore className="grid"/>
   
@@ -65,6 +68,7 @@ const Container = styled.div`
 
   @media only screen and (max-width: 800px) {
     grid-template-columns: 1fr;
+    padding: 0px 5%;
 
     :hover {
       cursor: auto;
@@ -78,10 +82,7 @@ const ZoomBtn = styled.div`
   line-height: 50px;
   font-size: 15px;
   color: whitesmoke;
-  border: ${(props) =>
-    props.theme === "light" && props.zoom
-      ? `1px solid #181818`
-      : `1px solid white`};
+  border: 1px solid whitesmoke;
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -95,16 +96,13 @@ const ZoomBtn = styled.div`
   @media only screen and (max-width: 800px) {
     display: none;
   }
+  
   @media only screen and (min-width: 1200px) {
-    color: ${props => props.zoom && "black"}
+    color: ${props => props.theme === "light" && props.zoom? "black": "whitesmoke"};
   }
+  
 
-  ${(props) =>
-    props.zoom &&
-    props.theme === "light" &&
-    css`
-      color: #181818;
-    `};
+ 
 
   .grid {
     font-size: 30px;

@@ -4,6 +4,8 @@ import About from './about';
 import Skill from './Skill';
 import Hobby from './Hobby';
 import { useFooter } from '../../contexts/footerContext';
+import Line from '../../components/Line';
+
 
 export default function sections({up }) {
   const [push, setPush] = useState(0);
@@ -23,7 +25,9 @@ export default function sections({up }) {
   return (
     <Container push={push}>
       <About />
+      <Line />
       <Skill />
+      <Line />
       <Hobby />
     </Container>
   );

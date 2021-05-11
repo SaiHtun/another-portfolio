@@ -1,11 +1,14 @@
 import "../styles/globals.css";
 import FooterContextProvider from "../contexts/footerContext";
+import ThemeContextProvider from '../contexts/themeContext';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <FooterContextProvider>
-      <Component {...pageProps} />
-    </FooterContextProvider>
+    <ThemeContextProvider>
+      <FooterContextProvider>
+        <Component {...pageProps} />
+      </FooterContextProvider>
+    </ThemeContextProvider>
   );
 }
 

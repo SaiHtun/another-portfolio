@@ -68,6 +68,11 @@ const Title = styled.h1`
     background-color: #61dbfb !important;
     opacity: 0.3;
   }
+
+
+  @media only screen and (max-width: 600px) {
+    margin-top: 0px;
+  }
 `;
 
 const Caption = styled.p`

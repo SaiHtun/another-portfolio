@@ -18,7 +18,7 @@ export default function download({ drop, setDrop }) {
         <p className="downloadText">Download Resume</p>
       { arrow }
       </SlideContainer>
-      <a href="/images/myw3schoolsimage.jpg" download className="btn">
+      <a href="/sai.pdf" download className="btn">
         <FiDownload></FiDownload>
         </a>
     </Container>
@@ -71,7 +71,7 @@ const Container = styled.div`
 
   .btn {
     position: absolute;
-    right: 15px;
+    right: 20px;
     bottom: 15px;
   }
 

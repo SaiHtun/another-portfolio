@@ -5,9 +5,10 @@ import Nav from "../../components/Nav";
 import Footer from "../../components/Footer";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "../GlobalStyles";
-import { useDarkMode } from "../../Hooks/useDarkMode";
+import { useTheme } from "../../contexts/themeContext";
 import Head from "next/head";
-import { VscChromeClose } from 'react-icons/vsc';
+import { VscChromeClose } from "react-icons/vsc";
+import { FaLinkedin, FaTwitter, FaGithub } from "react-icons/fa";
 
 const lightTheme = {
   body: "#fff",
@@ -26,7 +27,7 @@ const data = [
     to: "/",
   },
   {
-    name: "My Story",
+    name: "Story",
     to: "/story",
   },
   {
@@ -40,15 +41,10 @@ const data = [
 ];
 
 export default function Home(props) {
-  const [theme, themeToggler, mountedComponent] = useDarkMode();
-  const [ openOverlay, setOpenOverlay ] = useState(false);
+  const { theme, mountedComponent } = useTheme();
+  const [openOverlay, setOpenOverlay] = useState(false);
   const themeMode = theme === "light" ? lightTheme : darkTheme;
   // passing child's props with React.cloneElement
-  const children = React.Children.map(props.children, (child) => {
-    return React.cloneElement(child, {
-      theme: theme,
-    });
-  });
 
   if (!mountedComponent) return <div></div>;
 
@@ -66,15 +62,36 @@ export default function Home(props) {
             </Close>
             <Menu>
               {data.map((e, i) => (
-                <Link href={e.to} key={i} onClick={() => setOpenOverlay(!openOverlay)}>
+                <Link
+                  href={e.to}
+                  key={i}
+                  onClick={() => setOpenOverlay(!openOverlay)}
+                >
                   <li>{e.name}</li>
                 </Link>
               ))}
             </Menu>
+            <Socials>
+              <Link href="https://github.com/SaiHtun">
+                <>
+                  <FaGithub className="github" />
+                </>
+              </Link>
+              <Link href="https://www.linkedin.com/in/sai-htun-b20a0611a/">
+                <>
+                  <FaLinkedin className="linkedIn" />
+                </>
+              </Link>
+              <Link href="https://twitter.com/SaiHtun19428970">
+                <>
+                  <FaTwitter className="twitter" />
+                </>
+              </Link>
+            </Socials>
           </Overlay>
-          <Nav toggler={themeToggler} theme={theme} openOverlay={openOverlay} setOpenOverlay={setOpenOverlay}></Nav>
-          {children}
-          <Footer theme={theme}></Footer>
+          <Nav openOverlay={openOverlay} setOpenOverlay={setOpenOverlay}></Nav>
+          {props.children}
+          <Footer></Footer>
         </Container>
       </ThemeProvider>
     </>
@@ -85,9 +102,11 @@ const Container = styled.div`
   width: 100vw;
   height: 100vh;
 
-  ${props => props.open && css`
-    overflow: hidden;
-  ` };
+  ${(props) =>
+    props.open &&
+    css`
+      overflow: hidden;
+    `};
 `;
 
 const Overlay = styled.div`
@@ -102,18 +121,21 @@ const Overlay = styled.div`
   background-color: #181818;
   display: flex;
   justify-content: center;
-  align-items: center;
-  transition: all .3s ease-out;
+  align-items: flex-start;
+  transition: all 0.3s ease-out;
 
-  ${props => props.open && css`
-    opacity: 1;
-    pointer-events: all;
-  ` };
+  ${(props) =>
+    props.open &&
+    css`
+      opacity: 1;
+      pointer-events: all;
+    `};
 `;
 
 const Close = styled.div`
   width: 50px;
   height: 50px;
+  border-radius: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -122,14 +144,19 @@ const Close = styled.div`
   top: 50px;
   z-index: 1;
   cursor: pointer;
+  transition: all 0.3s ease-out;
 
   @media only screen and (max-width: 800px) {
     top: 20px;
     right: 20px;
-  } 
+  }
+
+  :hover {
+    background-color: #f0798d;
+  }
 
   svg {
-    font-size: 2em;
+    font-size: 1.5em;
     color: whitesmoke !important;
   }
 `;
@@ -139,13 +166,39 @@ const Menu = styled.ul`
   color: whitesmoke;
   text-align: center;
   text-transform: uppercase;
+  margin-top: 100px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 2px;
 
   li {
     margin: 30px 0px;
     cursor: pointer;
+    transition: color 0.3s ease-out;
 
     :hover {
       color: #00acee;
     }
+  }
+`;
+
+const Socials = styled.div`
+  color: whitesmoke;
+  position: relative;
+  position: absolute;
+  bottom: 200px;
+
+  svg {
+    margin: 0px 10px;
+    font-size: 1.5em;
+    cursor: pointer;
+  }
+
+  .twitter {
+    color: #00acee;
+  }
+
+  .linkedIn {
+    color: #0e76a8;
   }
 `;

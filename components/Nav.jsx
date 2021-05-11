@@ -1,12 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 import Link from "next/link";
-import { FaTwitter, FaGithubAlt, FaSun, FaRegMoon } from "react-icons/fa";
+import { FaGithubAlt, FaSun, FaRegMoon } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { useTheme } from '../contexts/themeContext';
 
-export default function Nav({ toggler, theme, openOverlay, setOpenOverlay }) {
+export default function Nav({  openOverlay, setOpenOverlay }) {
+  const {theme, themeToggler } = useTheme();
+
   const handleToggle = () => {
-    toggler();
+    themeToggler();
   };
 
   const sunMoon = theme === "light" ? <FaRegMoon /> : <FaSun className="sun" />;

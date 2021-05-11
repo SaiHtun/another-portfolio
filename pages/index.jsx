@@ -2,11 +2,11 @@ import Hero from "../components/home/Hero";
 import MainLayout from "../components/layouts/MainLayout";
 import styled from 'styled-components';
 
-export default function Home() {
+export default function Home(props) {
+
   return (
     <MainLayout>
       <Container>
-
       <Hero></Hero>
       </Container>
     </MainLayout>

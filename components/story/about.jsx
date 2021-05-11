@@ -42,9 +42,10 @@ const SectionOne = styled.section`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 
+
   @media only screen and (max-width: 800px) {
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(2, 1fr)
+    grid-template-rows: repeat(2, 1fr);
   }
 `;
 

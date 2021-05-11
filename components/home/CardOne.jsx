@@ -197,8 +197,10 @@ const Item = styled.div`
     `};
 
   @media only screen and (max-width: 800px) {
-    width: 500px;
-    height: 230px;
+    width: 100%;
+    height: 100%;
+    margin: 10px 0px;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.5)
   }
 `;
 

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useFooter } from "../contexts/footerContext";
+import { useTheme } from '../contexts/themeContext';
 
-export default function Footer({ theme }) {
+export default function Footer() {
   const { scrollCount, page, setScrollCount } = useFooter();
+  const { theme } = useTheme();
   const [show, setShow] = useState(false);
 
   useEffect(() => {
@@ -15,7 +17,6 @@ export default function Footer({ theme }) {
 
   useEffect(() => {
     setScrollCount(1)
-
     
   }, [])
 
