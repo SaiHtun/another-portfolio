@@ -31,8 +31,8 @@ const data = [
     to: "/story",
   },
   {
-    name: "Project",
-    to: "/project",
+    name: "Projects",
+    to: "/projects",
   },
   {
     name: "Contact",

@@ -4,11 +4,11 @@ import ThemeContextProvider from '../contexts/themeContext';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ThemeContextProvider>
-      <FooterContextProvider>
-        <Component {...pageProps} />
-      </FooterContextProvider>
-    </ThemeContextProvider>
+      <ThemeContextProvider>
+        <FooterContextProvider>
+          <Component {...pageProps} />
+        </FooterContextProvider>
+      </ThemeContextProvider>
   );
 }
 

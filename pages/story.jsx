@@ -3,7 +3,7 @@ import styled from "styled-components";
 import MainLayout from "../components/layouts/MainLayout";
 import Sections from "../components/story/Sections";
 import { useFooter } from "../contexts/footerContext";
-import  { throttle } from "../utility/throttle"
+import  { throttle } from "../utility/throttle";
 
 
 export default function story() {

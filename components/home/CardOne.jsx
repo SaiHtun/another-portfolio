@@ -7,7 +7,7 @@ const data = [
   {
     to: "/story",
     url: "./coffee.jpg",
-    title: "My Story",
+    title: "Story",
     text: "A Designer Who Can Code",
     cta: "More",
   },

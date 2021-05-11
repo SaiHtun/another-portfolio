@@ -27,7 +27,7 @@ export default function sections({up }) {
       <About />
       <Line />
       <Skill />
-      <Line />
+      <Line /> 
       <Hobby />
     </Container>
   );

@@ -4,16 +4,16 @@ import Link from "next/link";
 
 const data = [
   {
-    to: "",
+    to: "contact",
     url: "./beach.jpg",
     title: "Contact",
     text: "Available to convert the idea to the reality.",
     cta: "More",
   },
   {
-    to: "",
+    to: "/projects",
     url: "./kitty.jpg",
-    title: "Project",
+    title: "Projects",
     text: "Design & Web app Development ",
     cta: "More",
   },
