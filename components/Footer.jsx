@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useFooter } from "../contexts/footerContext";
 import { useTheme } from '../contexts/themeContext';
+import  {  useRouter } from 'next/router';
 
 export default function Footer() {
   const { scrollCount, page, setScrollCount } = useFooter();
   const { theme } = useTheme();
   const [show, setShow] = useState(false);
+  const { route } = useRouter();
 
   useEffect(() => {
     setShow(true);
@@ -22,10 +24,12 @@ export default function Footer() {
 
   const loaderUrl = theme === "light" ? "./loading.svg" : "./darkLoading.svg";
 
+  const noCount = route === "/contact" || route === "/blog" ? true: false;
+
   return (
     <Container>
       <Left></Left>
-      <Center>
+      <Center noCount={noCount} >
         <span>
           {" "}
           {scrollCount} / {page}
@@ -69,6 +73,7 @@ const Center = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  display: ${props => props.noCount && "none"};
 
   @media only screen and (max-width: 800px) {
     display: none;

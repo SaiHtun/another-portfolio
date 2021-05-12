@@ -6,9 +6,11 @@ import Footer from "../../components/Footer";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "../GlobalStyles";
 import { useTheme } from "../../contexts/themeContext";
+import { useMenuOverlay } from '../../contexts/menuOverlayContext';
 import Head from "next/head";
 import { VscChromeClose } from "react-icons/vsc";
 import { FaLinkedin, FaTwitter, FaGithub } from "react-icons/fa";
+import { useRouter } from 'next/router';
 
 const lightTheme = {
   body: "#fff",
@@ -35,6 +37,10 @@ const data = [
     to: "/projects",
   },
   {
+    name: "Blog",
+    to: "/blog",
+  },
+  {
     name: "Contact",
     to: "/contact",
   },
@@ -42,11 +48,17 @@ const data = [
 
 export default function Home(props) {
   const { theme, mountedComponent } = useTheme();
-  const [openOverlay, setOpenOverlay] = useState(false);
   const themeMode = theme === "light" ? lightTheme : darkTheme;
+  const { openOverlay, setOpenOverlay } = useMenuOverlay()
+  const router = useRouter();
   // passing child's props with React.cloneElement
 
   if (!mountedComponent) return <div></div>;
+
+  const handlePush = (e) => {
+    router.push(e.to);
+    setOpenOverlay(!openOverlay);
+  }
 
   return (
     <>
@@ -62,13 +74,9 @@ export default function Home(props) {
             </Close>
             <Menu>
               {data.map((e, i) => (
-                <Link
-                  href={e.to}
-                  key={i}
-                  onClick={() => setOpenOverlay(!openOverlay)}
-                >
-                  <li>{e.name}</li>
-                </Link>
+                <div key={i} onClick={() => handlePush(e)}>
+                  {e.name}
+                </div>
               ))}
             </Menu>
             <Socials>
@@ -89,7 +97,7 @@ export default function Home(props) {
               </Link>
             </Socials>
           </Overlay>
-          <Nav openOverlay={openOverlay} setOpenOverlay={setOpenOverlay}></Nav>
+          <Nav ></Nav>
           {props.children}
           <Footer></Footer>
         </Container>
@@ -161,7 +169,7 @@ const Close = styled.div`
   }
 `;
 
-const Menu = styled.ul`
+const Menu = styled.div`
   list-style: none;
   color: whitesmoke;
   text-align: center;
@@ -171,7 +179,7 @@ const Menu = styled.ul`
   font-weight: 600;
   letter-spacing: 2px;
 
-  li {
+  div {
     margin: 30px 0px;
     cursor: pointer;
     transition: color 0.3s ease-out;

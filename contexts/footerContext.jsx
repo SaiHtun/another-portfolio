@@ -10,6 +10,7 @@ const FooterContextProvider = ({ children }) => {
   const [countTwo, setCountTwo] = useState(1);
   const [countThree, setCountThree] = useState(1);
 
+
   const pageNumber = {
     "/": 2,
     "/story": 3,
@@ -28,10 +29,14 @@ const FooterContextProvider = ({ children }) => {
     "/projects": setCountThree,
   };
 
-  const page = pageNumber[route];
+  var page = 0, scrollCount = 0, setScrollCount = () => {};
 
-  const scrollCount = chooseCount[route];
-  const setScrollCount = chooseSetCount[route];
+  if(route === "/home" || route === "/story" || route === "/project") {
+     page = pageNumber[route];
+     scrollCount = chooseCount[route];
+     setScrollCount = chooseSetCount[route];
+  }
+
 
   return (
     <FooterContext.Provider value={{ scrollCount, setScrollCount, page }}>

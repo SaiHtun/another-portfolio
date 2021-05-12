@@ -16,14 +16,14 @@ const data = [
         githubURL: "https://github.com/SaiHtun/telemartmyanmar",
         websiteURL: "https://www.telemartmyanmar.com/",
         imageURL: "/telemart.png",
-        msg: `The initial version of this website will only serve as a look book ( displaying available items from the store ) and soon to be added payment and many more features in the future when the company is ready for the delivery infrastructure and online payment. The tech stacks I've used are - React, ApolloGraphql, GraphCMS, and Vercel.`
+        msg: `The initial version of this website will only serve as a look book ( displaying available items from the store ) and soon to be added payment and many more features in the future when the company is ready for the delivery infrastructure and online payment. The tech stack I've used are - React, ApolloGraphql, GraphCMS, and Vercel.`
     },
     {
-        name: "SPS business group ",
+        name: "SPS ",
         githubURL: "https://github.com/SaiHtun/sps-business-group",
         websiteURL: "https://www.spsbusinessgroup.com/",
         imageURL: "/sps.png",
-        msg: `This is my very first React and Firebase web app, a clone version of "Instagram" and I named it "Outstagramm" 😅, a very simple basic crud app, I made it with no security or performance concerns, probably require tons of refactoring too but let me just keep it that way for now 😬, and it might contain only 0.01% of the actual "Instagram" features but kindly have a look and feel free to test.`
+        msg: `A Company portfolio website for SPS business group. built with Typescript, Next.js, and Vercel, i know it is overkilled to use Typescript for this basic landing page, but yeah i used it just for the learning purposes.`
     },
 
 ]

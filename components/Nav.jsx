@@ -4,9 +4,13 @@ import Link from "next/link";
 import { FaGithubAlt, FaSun, FaRegMoon } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useTheme } from '../contexts/themeContext';
+import { useRouter } from "next/router";
+import { useMenuOverlay } from '../contexts/menuOverlayContext';
 
-export default function Nav({  openOverlay, setOpenOverlay }) {
+export default function Nav() {
   const {theme, themeToggler } = useTheme();
+  const router = useRouter();
+  const { openOverlay, setOpenOverlay } = useMenuOverlay()
 
   const handleToggle = () => {
     themeToggler();
@@ -24,7 +28,9 @@ export default function Nav({  openOverlay, setOpenOverlay }) {
           <MenuItem onClick={handleToggle}>{sunMoon}</MenuItem>
           <MenuItem>
             {" "}
-            <FaGithubAlt />
+            <IconWrapper onClick={() => router.push("https://github.com/SaiHtun")}>
+              <FaGithubAlt />
+              </IconWrapper>
           </MenuItem>
           <MenuItem onClick={() => setOpenOverlay(!openOverlay)}>
             {" "}
@@ -36,6 +42,15 @@ export default function Nav({  openOverlay, setOpenOverlay }) {
     </Wrapper>
   );
 }
+
+const IconWrapper = styled.div`
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 
 const Wrapper = styled.div`
   width: 100vw;
