@@ -6,14 +6,14 @@ import { useFooter } from "../../contexts/footerContext";
 const data = [
   {
     to: "/story",
-    url: "./coffee.jpg",
+    url: "./la.jpg",
     title: "Story",
     text: "A Designer Who Can Code",
     cta: "More",
   },
   {
     to: "/blog",
-    url: "./driver.jpg",
+    url: "./five.jpg",
     title: "Blog",
     text: "JavaScript, React, GraphQL, Cloud",
     cta: "More",

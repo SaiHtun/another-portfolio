@@ -31,7 +31,7 @@ export default function Hero(props) {
   
 
   return (
-    <Container zoom={zoomOut} onWheel={zoomOut ? undefined : (e) => throttle(e, handleWheel, 200)}>
+    <Container zoom={zoomOut} onWheel={zoomOut ? undefined : (e) => throttle(e, handleWheel, 1000)}>
       <CardOne up={up} zoom={zoomOut} />
       <CardTwo up={up} zoom={zoomOut} />
       <ZoomBtn

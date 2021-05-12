@@ -100,27 +100,41 @@ const Body = styled.div`
   line-height: 28px;
   word-spacing: 2px;
   letter-spacing: -0, 003em;
-  @media only screen and (max-width: 500px) {
-    font-size: 18px;
-  }
+ 
   h2 {
     font-size: 2em;
     @media only screen and (max-width: 500px) {
       font-size: 1.3em;
     }
   }
+
+  h3 {
+    display: inline-block;
+    position: relative;
+    ::after {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 15px;
+      background-color: skyblue;
+      bottom: 0;
+      left: 5px;
+      z-index: -1;
+    }
+  }
+
   p {
     margin: 20px 0px;
     text-indent: 20px;
   }
   ul {
-    padding: 0px 100px;
+    padding: 0px 8%;
     @media only screen and (max-width: 800px) {
-      padding: 0px 50px 100px 50px;
+      padding: 0px 5%;
     }
-    @media only screen and (max-width: 500px) {
+    /* @media only screen and (max-width: 500px) {
       padding: 0px 0px 10px 30px;
-    }
+    } */
     li {
       margin-bottom: 5px;
     }

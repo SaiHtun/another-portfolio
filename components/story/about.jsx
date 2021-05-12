@@ -52,9 +52,10 @@ const SectionOne = styled.section`
 const Left = styled.div`
   width: 100%;
   height: 100%;
-  background-image: url("./kitty.jpg");
+  background-image: url("./samurai.jpg");
   background-position: center;
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
 `;
 
 const Right = styled.div`

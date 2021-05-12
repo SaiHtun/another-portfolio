@@ -31,10 +31,10 @@ const FooterContextProvider = ({ children }) => {
 
   var page = 0, scrollCount = 0, setScrollCount = () => {};
 
-  if(route === "/home" || route === "/story" || route === "/project") {
-     page = pageNumber[route];
-     scrollCount = chooseCount[route];
-     setScrollCount = chooseSetCount[route];
+  if(route === "/" || route === "/story" || route === "/projects") {
+      page = pageNumber[route];
+      scrollCount = chooseCount[route];
+      setScrollCount = chooseSetCount[route];
   }
 
 

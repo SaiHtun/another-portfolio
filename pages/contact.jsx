@@ -32,27 +32,29 @@ export default function contact() {
             <input type="submit" value="Send"></input>
           </fieldset>
         </form>
+        <Push />
       </Container>
 
     </MainLayout>
   );
 }
 
-
+const Push = styled.div`
+  height: 10vh;
+`;
 
 const Container = styled.div`
   padding: 0 8%;
   width: 100%;
-  min-height: 80vh;
+  height: 100%;
   font-size: 16px;
-
+  margin-bottom: -10vh;
   display: flex;
   justify-content: center;
   align-items: center;
 
   @media only screen and (max-width: 800px) {
         padding: 3%;
-        margin-top: 10vh;
     }
 
   .form {
@@ -65,7 +67,7 @@ const Container = styled.div`
           font-size: 100%;
           border: none;
           background-color: #e6e6e6;
-          border-radius: 10px;
+          border-radius: 5px;
       }
       textarea {
         margin: 10px;
@@ -74,7 +76,7 @@ const Container = styled.div`
           font-size: 100%;
           border: none;
           background-color: #e6e6e6;
-          border-radius: 10px;
+          border-radius: 5px;
       }
 
       input[type="submit"] {
@@ -85,7 +87,7 @@ const Container = styled.div`
           cursor: pointer;
           color: black;
           transition: all .3s ease-in-out;
-          border-radius: 10px;
+          border-radius: 5px;
 
         :hover {
             background-color: #61dbfb;
@@ -100,7 +102,7 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     padding: 30px 40px 30px 20px;
-    border-radius: 10px;
+    border-radius: 5px;
     
     legend {
         font-size: 24px;
@@ -108,7 +110,11 @@ const Container = styled.div`
     }
     
     @media only screen and (max-width: 500px) {
-        padding: 10px 30px 10px 10px;
+        border: 0;
+        padding: 0 5% 0 0;
+        legend {
+          display: none;
+        }
     }
     
     

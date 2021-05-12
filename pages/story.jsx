@@ -23,7 +23,7 @@ export default function story() {
   };
   return (
     <MainLayout>
-      <Container onWheel={(e) => throttle(e, handleWheel, 200)}>
+      <Container onWheel={(e) => throttle(e, handleWheel, 1000)}>
         <Sections up={up}></Sections>
       </Container>
     </MainLayout>

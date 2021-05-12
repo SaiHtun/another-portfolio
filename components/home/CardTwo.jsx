@@ -4,15 +4,15 @@ import Link from "next/link";
 
 const data = [
   {
-    to: "contact",
-    url: "./beach.jpg",
+    to: "/contact",
+    url: "https://media.giphy.com/media/chfTWsqxm3BC63wgAy/giphy.gif",
     title: "Contact",
     text: "Available to convert the idea to the reality.",
     cta: "More",
   },
   {
     to: "/projects",
-    url: "./kitty.jpg",
+    url: "./project.jpg",
     title: "Projects",
     text: "Design & Web app Development ",
     cta: "More",
@@ -46,7 +46,7 @@ const Card = ({ up, zoom }) => {
             </Content>
             <FollowContent zoom={zoom}>
               <FollowTitle>{item.title}</FollowTitle>
-              <Link href={item.url}>
+              <Link href={item.to}>
                 <FollowCTA>{item.cta}</FollowCTA>
               </Link>
             </FollowContent>
