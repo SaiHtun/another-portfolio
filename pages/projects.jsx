@@ -23,7 +23,14 @@ export default function projects() {
 
 
     return (
-        <MainLayout>
+        <MainLayout
+        title="Sai | Projects" 
+        description="Outstagramm is an Instagram clone build with React & Firebase, Telemartmyanmar is a LookBook webapp build with React & GraphCMS."
+        currentURL="https://https://outstagramm-2bbb5.web.app/timeline"
+        siteName="https://telemartmyanmar.com"
+        previewImage="./outstagramm.png"
+        twitterHandle="@SaiHtun19428970"
+        >
             <Container onWheel={(e) => throttle(e, handleWheel, 1000)}>
                 <Sections up={up}></Sections>
             </Container>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import styled, { css } from "styled-components";
 import Nav from "../../components/Nav";
@@ -6,11 +6,11 @@ import Footer from "../../components/Footer";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "../GlobalStyles";
 import { useTheme } from "../../contexts/themeContext";
-import { useMenuOverlay } from '../../contexts/menuOverlayContext';
+import { useMenuOverlay } from "../../contexts/menuOverlayContext";
 import Head from "next/head";
 import { VscChromeClose } from "react-icons/vsc";
 import { FaLinkedin, FaTwitter, FaGithub } from "react-icons/fa";
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 
 const lightTheme = {
   body: "#fff",
@@ -46,10 +46,11 @@ const data = [
   },
 ];
 
-export default function Home(props) {
+export default function Home({ children, title, description, ...props }) {
+  let currentURL, previewImage, siteName, twitterHandle;
   const { theme, mountedComponent } = useTheme();
   const themeMode = theme === "light" ? lightTheme : darkTheme;
-  const { openOverlay, setOpenOverlay } = useMenuOverlay()
+  const { openOverlay, setOpenOverlay } = useMenuOverlay();
   const router = useRouter();
   // passing child's props with React.cloneElement
 
@@ -58,11 +59,30 @@ export default function Home(props) {
   const handlePush = (e) => {
     router.push(e.to);
     setOpenOverlay(!openOverlay);
-  }
+  };
+
+  console.log(props)
 
   return (
     <>
       <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charSet="utf-8" />
+        <meta name="description" content={description} />
+        {/* twitter */}
+        <meta name="twitter:card" content="summary" key="twcard" />
+        <meta name="twitter:creator" content={twitterHandle} key="twhandle" />
+        {/* Open Graph */}
+        <meta property="og:title" content={title} key="ogtitle" />
+        <meta property="og:description" content={description} key="ogdesc" />
+        <meta property="og:url" content={currentURL} key="ogurl" />
+        <meta property="og:image" content={previewImage} key="ogimage" />
+        <meta property="og:site_name" content={siteName} key="ogsitename" />
+        <title>{title}</title>
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
+        <link rel="manifest" href="/site.webmanifest" />
         <script type="text/javascript" src="/static/index.js" />
       </Head>
       <ThemeProvider theme={themeMode}>
@@ -97,8 +117,8 @@ export default function Home(props) {
               </Link>
             </Socials>
           </Overlay>
-          <Nav ></Nav>
-          {props.children}
+          <Nav></Nav>
+          {children}
           <Footer></Footer>
         </Container>
       </ThemeProvider>

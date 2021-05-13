@@ -29,7 +29,14 @@ export async function getServerSideProps() {
 
 export default function blog({data}) {
     return (
-        <MainLayout>
+        <MainLayout
+            title="Sai | Blog" 
+            description="i’m an ex-IT System Administrator ( VMware Certified ) and currently a modern JavaScript Stack developer, so i’ll be focus on writing Virtualization, Containerization, Cloud and of course JS stuffs. "
+            currentURL="https://saihtun.xyz/blog"
+            siteName="https://saihtun.xyz/blog"
+            previewImage={data.blogs[0].image.url}
+            twitterHandle="@SaiHtun19428970"
+        >
             <Container>
                 <Caption>
                 Thanks for being here, this is my very first time trying to write blog from my entire life, i have quite a few purposes for doing that, so usually i love taking notes on a random paper and having a hard time finding them when it’s needed, thus i just thought of writing notes as a blog so i can always come back to refresh my memories and simply just want to share the technology related information to the beginner or who ever needed in a naive way, on the other hand English is my 4th language and i found myself grammatically horrible sometimes, so i just want to improve my english through writing blogs, i’m an ex-IT System Administrator ( VMware Certified ) and currently a modern JavaScript Stack developer, so i’ll be focus on writing Virtualization, Containerization, Cloud and of course JS stuffs. Please don't mind if you are having trouble reading my blog post and correct me if i was wrong, anyway i’m here to get started from one blog and many more to go yo !

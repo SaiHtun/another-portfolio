@@ -4,7 +4,14 @@ import MainLayout from '../components/layouts/MainLayout';
 
 export default function contact() {
   return (
-    <MainLayout>
+    <MainLayout
+      title="Sai | Contact" 
+      description="This awesome Software Engineer is located in SF Bay Area."
+      currentURL="https://saihtun.xyz/contact"
+      siteName="https://saihtun.xyz"
+      previewImage="./la.jpg"
+      twitterHandle="@SaiHtun19428970"
+    >
       <Container>
         <form className="form" action="https://formsubmit.co/f3345811c94fc79bfd074ec5b1b8f29e" method="POST">
           <fieldset className="fieldset">

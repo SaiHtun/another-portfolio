@@ -22,7 +22,16 @@ export default function story() {
     }
   };
   return (
-    <MainLayout>
+    <MainLayout
+      title="Sai | Story" 
+      description="Sai is expertised in modern
+      Javascript Development Stacks, experienced in network and system
+      administration, critical thinker, music and 🐶 lover,"
+      currentURL="https://saihtun.xyz/story"
+      siteName="https://saihtun.xyz/story"
+      previewImage="./samurai.jpg"
+      twitterHandle="@SaiHtun19428970"
+    >
       <Container onWheel={(e) => throttle(e, handleWheel, 1000)}>
         <Sections up={up}></Sections>
       </Container>

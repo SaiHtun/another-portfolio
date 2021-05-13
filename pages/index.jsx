@@ -5,7 +5,14 @@ import styled from 'styled-components';
 export default function Home(props) {
 
   return (
-    <MainLayout>
+    <MainLayout 
+      title="Sai | Home" 
+      description="A designer who can code, ex-IT system administrator, JavaScript, TypeScript, React and GraphQL enthusiast."
+      currentURL="https://saihtun.xyz"
+      siteName="https://saihtun.xyz"
+      previewImage="./la.jpg"
+      twitterHandle="@SaiHtun19428970"
+    >
       <Container>
       <Hero></Hero>
       </Container>

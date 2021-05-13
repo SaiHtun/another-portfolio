@@ -4,6 +4,7 @@ import MainLayout from '../../components/layouts/MainLayout';
 // utilities
 import fetchAPI from "../../utility/fetchAPI";
 import { dashToSpace } from '../../utility/stringParser';
+import { spaceToDash } from '../../utility/stringParser';
 
 
 
@@ -14,6 +15,9 @@ const GET_BLOG = `
       caption
       description
       createdAt
+      image {
+        url
+      }
       body {
         html
       }
@@ -35,9 +39,17 @@ export async function getServerSideProps(context) {
 
 export default function Blog({ data }) {
   const blog = data.blogs[0];
+  const slug = spaceToDash(blog.title);
     
   return (
-    <MainLayout >
+    <MainLayout 
+      title={blog.title} 
+      description={blog.description}
+      currentURL={`https://saihtun.xyz/blog/${slug}`}
+      siteName="https://saihtun.xyz"
+      previewImage={blog.image.url}
+      twitterHandle="@SaiHtun19428970"
+    >
       <Container>
           <TitleWrapper>
             <Title>{blog.title}</Title>
@@ -100,7 +112,6 @@ const Body = styled.div`
   line-height: 28px;
   word-spacing: 2px;
   letter-spacing: -0, 003em;
-  text-align: justify;
  
   h2 {
     font-size: 2em;

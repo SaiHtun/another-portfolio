@@ -64,7 +64,6 @@ const Container = styled.div`
   height: 100%;
   position: relative;
   overflow: hidden;
-  text-align: justify;
   .react {
     position: absolute;
     bottom: -260px;
