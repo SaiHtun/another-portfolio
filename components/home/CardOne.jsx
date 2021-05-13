@@ -2,18 +2,19 @@ import React, { useState, useEffect } from "react";
 import styled, { css } from "styled-components";
 import Link from "next/link";
 import { useFooter } from "../../contexts/footerContext";
+import Image from 'next/image';
 
 const data = [
   {
     to: "/story",
-    url: "./la.jpg",
+    url: "/la.jpg",
     title: "Story",
     text: "A Designer Who Can Code",
     cta: "More",
   },
   {
     to: "/blog",
-    url: "./five.jpg",
+    url: "/five.jpg",
     title: "Blog",
     text: "JavaScript, React, GraphQL, Cloud",
     cta: "More",
@@ -52,6 +53,13 @@ const Card = ({ up, zoom }) => {
       <Container push={push} zoom={zoom}>
         {data.map((item, i) => (
           <Item key={i} img={item.url} zoom={zoom}>
+            <Image src={item.url} 
+              alt={item.title}
+              layout="fill"
+              objectFit="cover"
+              quality="100"
+              priority
+            ></Image>
             <Content className="content" zoom={zoom}>
               <Title>{item.title}</Title>
               <Link href={item.to}>
@@ -174,9 +182,6 @@ const Container = styled.div`
 const Item = styled.div`
   width: 100%;
   height: 100%;
-  background-image: ${(props) => `url(${props.img})`};
-  background-position: center;
-  background-size: cover;
   transition: all 0.5s ease-in-out !important;
   display: flex;
   justify-content: center;

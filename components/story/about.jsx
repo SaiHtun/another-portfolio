@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Download from "../buttons/download";
+import Image from 'next/image';
 
 export default function sectionOne() {
   const [drop, setDrop] = useState(false);
@@ -15,7 +16,15 @@ export default function sectionOne() {
   
   return (
       <SectionOne onClick={handleDrop}>
-        <Left></Left>
+        <Left>
+          <Image src="/samurai.jpg"
+            width={350}
+            height={400}
+            objectFit="contain"
+            quality="100"
+            priority
+          ></Image>
+        </Left>
         <Right>
           <ContentWrapper>
             <Title>Ohaiyo ~</Title>
@@ -52,10 +61,9 @@ const SectionOne = styled.section`
 const Left = styled.div`
   width: 100%;
   height: 100%;
-  background-image: url("./samurai.jpg");
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Right = styled.div`

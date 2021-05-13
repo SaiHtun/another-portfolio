@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import Line from "../../components/Line";
-import Link from "next/link";
 import { FaGlobeAmericas, FaGithub } from "react-icons/fa";
 import { useRouter } from "next/router";
+import Image from 'next/image';
 
 export default function sectionOne({ data }) {
   const router = useRouter();
@@ -14,7 +14,13 @@ export default function sectionOne({ data }) {
 
   return (
     <SectionOne>
-      <Left url={data.imageURL}></Left>
+      <Image src={data.imageURL}
+        width={1000}
+        height={400}
+        quality="100"
+        objectFit="contain"
+        priority
+      ></Image>
       <Right>
         <ContentWrapper>
           <Title>
@@ -61,19 +67,6 @@ const Links = styled.div`
   display: flex;
 `;
 
-const Left = styled.div`
-  width: 100%;
-  height: 100%;
-  background-image: ${(props) => `url(${props.url})`};
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-
-  @media only screen and (max-width: 800px) {
-    background-position: top;
-    background-size: contain;
-  }
-`;
 
 const Right = styled.div`
   display: flex;

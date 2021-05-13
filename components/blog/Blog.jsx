@@ -2,21 +2,33 @@ import React from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 import { spaceToDash } from '../../utility/stringParser';
+import Image from 'next/image';
 
 export default function blog({data}) {
     return (
         <Link href={`/blog/${spaceToDash(data.title)}`}>
             <Container >
-                <Image url={data.image.url}></Image>
+                <ImageWrapper>
+                    <Image src={data.image.url}
+                        priority="100"
+                        width={340}
+                        height={180}
+                        objectFit="cover"
+                    ></Image>
+                </ImageWrapper>
                 <Content>
-                <Title>{data.title}</Title>
-                <Message>{data.description}</Message>
-                <Date>{data.createdAt}</Date>
+                    <Title>{data.title}</Title>
+                    <Message>{data.description}</Message>
+                    <Date>{data.createdAt}</Date>
                 </Content>
             </Container>
         </Link>
     )
 }
+
+const ImageWrapper = styled.div`
+    width: 340px;
+`;
 
 const Container = styled.div`
     width: 340px;
@@ -29,12 +41,7 @@ const Container = styled.div`
     cursor: pointer;
 `;
 
-const Image = styled.div`
-    width: 100%;
-    background-image: ${props => `url(${props.url})`};
-    background-position: center;
-    background-size: cover;
-`;
+
 
 const Content = styled.div`
     padding: 20px;

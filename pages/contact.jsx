@@ -8,7 +8,7 @@ export default function contact() {
       <Container>
         <form className="form" action="https://formsubmit.co/f3345811c94fc79bfd074ec5b1b8f29e" method="POST">
           <fieldset className="fieldset">
-            <legend>Contact Sai</legend>
+            <legend>Sai is located in SF Bay Area</legend>
             <label htmlFor="email"></label>
             <input
               type="email"

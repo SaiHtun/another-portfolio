@@ -24,7 +24,7 @@ export default function Footer() {
 
   const loaderUrl = theme === "light" ? "./loading.svg" : "./darkLoading.svg";
 
-  const noCount = route === "/contact" || route === "/blog" ? true: false;
+  const noCount = scrollCount === 0? true: false;
 
   return (
     <Container>
