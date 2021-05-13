@@ -100,6 +100,7 @@ const Body = styled.div`
   line-height: 28px;
   word-spacing: 2px;
   letter-spacing: -0, 003em;
+  text-align: justify;
  
   h2 {
     font-size: 2em;

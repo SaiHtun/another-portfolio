@@ -68,7 +68,7 @@ const Caption = styled.p`
     font-size: 16px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     @media only screen and (max-width: 500px) {
-        text-align: left;
+        text-align: justify;
     }
    
 `;
