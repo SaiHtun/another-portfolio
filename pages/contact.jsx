@@ -15,7 +15,7 @@ export default function contact() {
       <Container>
         <form className="form" action="https://formsubmit.co/f3345811c94fc79bfd074ec5b1b8f29e" method="POST">
           <fieldset className="fieldset">
-            <legend>Sai is located in SF Bay Area</legend>
+            <legend>Sai is located at SF Bay Area 🌁</legend>
             <label htmlFor="email"></label>
             <input
               type="email"
@@ -30,7 +30,7 @@ export default function contact() {
               id="message"
                rows="10"
               cols="5"
-              placeholder="Enter messages"
+              placeholder="Enter messages.."
               required
             ></textarea>
             {/* <input type="hidden" name="_captcha" value="false"></input> */}
@@ -59,6 +59,8 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; 
 
   @media only screen and (max-width: 800px) {
         padding: 3%;
@@ -84,6 +86,8 @@ const Container = styled.div`
           border: none;
           background-color: #e6e6e6;
           border-radius: 5px;
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+
       }
 
       input[type="submit"] {

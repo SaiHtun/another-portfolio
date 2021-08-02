@@ -61,8 +61,6 @@ export default function Home({ children, title, description, ...props }) {
     setOpenOverlay(!openOverlay);
   };
 
-  console.log(props)
-
   return (
     <>
       <Head>
