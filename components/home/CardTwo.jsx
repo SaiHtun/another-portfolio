@@ -6,7 +6,7 @@ import Image from 'next/image';
 const data = [
   {
     to: "/contact",
-    url: "https://media.giphy.com/media/chfTWsqxm3BC63wgAy/giphy.gif",
+    url: "/goldengate.jpeg",
     title: "Contact",
     text: "Available to convert the idea to the reality.",
     cta: "More",
